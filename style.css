@@ -1,0 +1,997 @@
+/* Load site fonts for ALL pages */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* Optional: keep metrics stable while fonts load */
+html { font-synthesis: none; text-rendering: optimizeLegibility; }
+
+
+
+:root {
+  --color-black: #0B0B0B;
+  --color-white: #FFFFFF;
+  --color-blue: #357ABD;
+  --color-brown: #C1782E;
+  --color-yellow: #E3A72F;
+  --font-heading: 'Bebas Neue', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-black);
+  line-height: 1.6;
+  background-color: var(--color-white);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(11, 11, 11, 0.9);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Slightly smaller padding to maintain original navbar height with larger logo */
+  /* Reduce padding so the fixed bar doesn’t become too tall with the larger logo */
+  padding: 0.4rem 0;
+}
+
+/* Hamburger button for mobile */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+
+.nav-container .logo img {
+  /* Slightly larger logo for better visibility */
+  /* Slightly increase logo height for prominence */
+  height: 60px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  /* Center the navigation items horizontally */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ensure each navigation list item vertically centers its contents (link text
+   and optional logo) within the navbar height. Without this, items can
+   appear pushed toward the top of the bar when the logo has a different
+   height. */
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-yellow);
+}
+
+/* Mobile navigation */
+@media (max-width: 768px) {
+  .nav-container {
+    position: relative;
+  }
+  /* Mobile navigation menu */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    /* When opened, the dropdown covers the full width of the screen to
+       prevent partial coverage on tablets and mobile devices. */
+    background: rgba(11, 11, 11, 0.95);
+    width: 100%;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+    text-align: center;
+    align-items: center;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .hamburger {
+    display: block;
+    /* Position the hamburger slightly further from the right edge. A larger
+       right value moves it leftward, making it easier to reach on phones
+       and tablets without drifting toward the centre. */
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  /* Adjust nav link styling on mobile */
+  .nav-links a {
+    color: var(--color-white);
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+  }
+}
+
+/* Hero */
+/* Hero section with full screen background video */
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  text-align: center;
+  overflow: hidden;
+  padding: 0 1rem;
+}
+
+/* Video fills the hero section */
+.hero-video {
+  position: absolute;
+  z-index: 0;
+  border: none;
+  /* Make the YouTube video responsive so it fills the hero section
+     across all screen sizes.  Setting min-width and min-height ensures
+     whichever dimension is smaller always covers the section, while
+     width:auto and height:auto allow the other dimension to scale.
+     Offsetting the iframe and enlarging it slightly hides the
+     YouTube watermark that appears in the bottom‑right corner. */
+  top: -7%;
+  left: -7%;
+  width: auto;
+  height: 100%;
+  min-width: 110%;
+  min-height: 110%;
+}
+
+/* Dark overlay to improve text contrast */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 11, 11, 0.6);
+  z-index: 1;
+}
+
+/* Content sits above overlay */
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-overlay {
+  max-width: 800px;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: #E0E0E0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem .5rem;
+  border-radius: 2px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-brown);
+}
+
+/* CTA button used on the contact form. Stand out with a warm accent colour */
+.btn-cta {
+  background-color: var(--color-yellow);
+  color: var(--color-black);
+}
+
+.btn-cta:hover {
+  background-color: var(--color-brown);
+  color: var(--color-white);
+}
+
+.btn-secondary {
+  background-color: var(--color-yellow);
+  color: var(--color-black);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-brown);
+  color: var(--color-white);
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: var(--color-black);
+}
+
+/* Work section tagline */
+.work-tagline {
+  /* Use the same headline font as the hero tagline to create a consistent feel */
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: #555;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+/* Custom style for the Dragon Letter logo in the navigation bar */
+.nav-dragon-letter-logo {
+  height: 40px;
+}
+
+/* Film title on detail pages */
+/* Title on individual film pages. Use the same headline font as the rest of
+   the site for consistency and convert to uppercase. Remove italics to
+   align with other section headings. */
+.film-title {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: var(--color-black);
+}
+
+@media (min-width: 768px) {
+  .film-title {
+    font-size: 3rem;
+  }
+}
+
+/* Contact direct links for WhatsApp and email under CTA */
+.contact-direct-links {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+/* Style the quick contact links to match the CTA button appearance */
+.contact-direct-links .direct-link,
+.contact-actions .direct-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--color-black);
+  background-color: var(--color-yellow);
+  padding: 0.75rem 1.5rem;
+  border-radius: 2px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  /* Add a thin black border to match the primary CTA button. This ensures
+     consistency between the quick contact buttons and the main form
+     submission button. */
+  border: 1px solid var(--color-black);
+}
+
+.contact-direct-links .direct-link i {
+  margin-right: 0.5rem;
+  font-size: 1.25rem;
+}
+
+/* When quick contact buttons appear in the unified action row, there is
+   no accompanying text. Remove the right margin on the icons so they
+   centre within the button. */
+.contact-actions .direct-link i {
+  margin-right: 0;
+}
+
+/* Style quick contact icons in the unified row to match the reference design.
+   Each icon button should be a square and align with the height of the
+   primary CTA button. Remove default horizontal padding and instead set
+   equal width and height. */
+.contact-actions .direct-link {
+  /* Assign a fixed width for each quick contact button so that all
+     buttons, including the primary call‑to‑action, occupy the
+     same amount of horizontal space.  Removing flex grow prevents
+     uneven stretching on wide screens.  Maintain a consistent height
+     and remove internal padding for icon centring. */
+  flex: 0 0 auto;
+  width: 80px;
+  height: 3.5rem;
+  padding: 0;
+}
+.contact-actions .submit-btn {
+  /* Make the primary CTA share equal horizontal space with the icon
+     buttons.  Using flex: 1 allows it to expand to match the width
+     of the other action items.  Maintain a consistent height and
+     centre its text. */
+  /* Match the width and height of the quick contact icon buttons.  A
+     fixed width ensures consistency across all three buttons, and
+     removing flex grow prevents the CTA from stretching beyond the
+     icons.  The flex display centres the text. */
+  flex: 0 0 auto;
+  width: 220px;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0;
+}
+.contact-actions .direct-link i {
+  font-size: 1.5rem;
+}
+
+
+/* Add a subtle hover effect to the Dragon Letter logo in the navigation.
+   Scaling the logo slightly on hover signals interactivity without
+   disrupting the layout. */
+.nav-dragon-letter-logo {
+  transition: transform 0.2s ease;
+}
+.nav-dragon-letter-logo:hover {
+  transform: scale(1.05);
+}
+
+.contact-direct-links .direct-link:hover {
+  background-color: var(--color-brown);
+  color: var(--color-white);
+}
+
+/* Flex container that arranges the primary contact button and alternative
+   contact links (WhatsApp and Email) on a single line. The items will
+   wrap on smaller screens to maintain readability. */
+.contact-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Increase horizontal spacing between action items for clearer separation */
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+/* Separator text between the CTA button and quick contact links */
+.contact-actions .contact-or {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-black);
+}
+
+@media (min-width: 768px) {
+  /* On tablet and desktop screens, keep the action row items on the same line
+     to neatly align the primary CTA with the quick contact links. On narrow
+     screens the items will naturally wrap due to flexbox. */
+  .contact-actions {
+    flex-wrap: nowrap;
+  }
+}
+
+/* On very small screens, allow each contact action button to occupy the
+   full width of its container so the layout remains readable.  This
+   ensures the buttons stack vertically when there isn't enough space
+   for them to sit side by side. */
+@media (max-width: 500px) {
+  .contact-actions .submit-btn,
+  .contact-actions .direct-link {
+    width: 100%;
+  }
+}
+
+/* Adjust spacing for quote section author and description */
+.quote-author {
+  margin-bottom: 1rem;
+}
+
+.quote-desc {
+  margin-top: 0.5rem;
+  color: #ccc;
+}
+
+/* Smaller heading for More of Our Work on film pages */
+/* Heading for the "More of Our Work" section on film pages. Use the same
+   headline font as the home page section titles and convert to uppercase
+   for visual consistency. */
+.small-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--color-black);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Hamburger animation: switch icons and animate rotation */
+.hamburger i {
+  transition: transform 0.3s ease;
+}
+.hamburger.open i.fa-bars {
+  transform: rotate(90deg);
+  opacity: 0;
+}
+.hamburger.open i.fa-times {
+  transform: rotate(0deg);
+  opacity: 1;
+}
+
+.section-intro {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* About Section */
+.about {
+  padding: 5rem 0;
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.about-text {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.usp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.usp-item {
+  background-color: #f9f9f9;
+  padding: 2rem 1.5rem;
+  border-left: 4px solid var(--color-blue);
+  border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.usp-item h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-black);
+}
+
+.usp-item p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Icon styling for USP items */
+.usp-item i {
+  font-size: 2rem;
+  color: var(--color-blue);
+  margin-bottom: 0.75rem;
+  display: inline-block;
+}
+
+/* Hover effect for USP cards */
+.usp-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-left-color: var(--color-yellow);
+  background-color: #ffffff;
+}
+
+/* Work Section */
+.work {
+  padding: 5rem 0;
+  background-color: #f5f7fa;
+}
+
+.work-grid {
+  display: grid;
+  /* default: flexible columns with a slightly smaller minimum width */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.work-card {
+  overflow: hidden;
+  position: relative;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.work-image {
+  width: 100%;
+  height: 0;
+  /* increase aspect ratio for a larger card appearance */
+  padding-bottom: 70%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.work-card:hover .work-image {
+  transform: scale(1.05);
+}
+
+/* Play icon overlay for work cards */
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(11, 11, 11, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.play-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-white);
+}
+
+.work-card:hover .play-icon {
+  opacity: 1;
+}
+
+.work-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(11, 11, 11, 0.75);
+  color: var(--color-white);
+  padding: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.work-info h4 {
+  margin: 0;
+  /* Use the headline font for project titles in the work grid. This ties
+     the card titles to other section headings and ensures only two fonts
+     are used across the site. */
+  font-family: var(--font-heading);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.work-info p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+/* Film Section */
+.film {
+  /* Provide balanced vertical spacing around embedded videos on film pages.
+     Using equal padding on the top and bottom centres the video vertically
+     within its section. Use !important to override any inline styles that
+     previously set only top padding. */
+  /* Add extra top padding to ensure the video does not touch the fixed
+     navigation bar, while keeping a reduced bottom padding to bring the
+     description closer to the video. */
+  /* Increase top padding slightly to ensure videos never overlap the
+     fixed navigation bar.  This provides additional breathing room on
+     pages where the hero video or film video is directly below the nav. */
+  padding-top: 6rem !important;
+  padding-bottom: 3rem !important;
+  background-color: var(--color-white);
+}
+
+.film-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.film-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  /* Centre the video horizontally by allowing its direct child wrapper to
+     auto‑margin left and right. This keeps equal space on either side
+     rather than flush edges. */
+  align-items: center;
+}
+
+/* Constrain the embedded video container within film pages and add equal
+   vertical margins so the video does not sit flush against the navigation
+   bar or the following section. The auto margins horizontally ensure the
+   video is centred on the page, while the vertical margins balance space
+   above and below. */
+.film-wrapper > div {
+  /* Expand the maximum width of embedded videos so they display at
+     a larger 16×9 aspect ratio. Still constrain to the container
+     width on smaller screens. */
+  max-width: 1200px;
+  width: 100%;
+  /* Reduce the vertical margin between the video and the description below
+     by 50% compared to earlier designs.  This keeps the film title and
+     synopsis closer to the video for a more cohesive layout. */
+  margin: 0.5rem auto;
+}
+
+.film-image {
+  flex: 1;
+  min-height: 250px;
+  background-image: url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1000&q=80');
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+}
+
+.film-content {
+  flex: 1;
+}
+
+.film-content p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+/* Quote Section */
+.quote-section {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.8rem;
+  max-width: 800px;
+  margin: 0 auto 1rem;
+  line-height: 1.4;
+}
+
+.quote-author {
+  font-family: var(--font-body);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.quote-desc {
+  color: #ddd;
+  font-size: 1rem;
+}
+
+/* Clients Section */
+.clients {
+  padding: 5rem 0;
+  background-color: #f5f7fa;
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.client-item {
+  padding: 1rem;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  font-weight: 600;
+}
+
+.recognition {
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+}
+
+/* Contact Section */
+.contact {
+  padding: 5rem 0;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  text-align: center;
+
+  /* Offset the fixed navigation bar so form fields are not hidden */
+  padding-top: 6rem;
+}
+
+.contact .section-intro {
+  color: #e0eaff;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-logo img {
+  height: 60px;
+}
+
+.footer-text {
+  font-size: 0.875rem;
+  color: #bbb;
+}
+
+/* Social media links in footer */
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.social-link {
+  font-size: 1.3rem;
+  color: #bbb;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: var(--color-yellow);
+}
+
+/* Hide category labels under work thumbnails */
+.work-info p {
+  display: none;
+}
+
+/* Contact Form Styles */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Director page styles */
+.director-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.director-image img {
+  width: 250px;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.director-bio {
+  flex: 1;
+  max-width: 700px;
+}
+
+@media (min-width: 768px) {
+  .director-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .director-image img {
+    width: 300px;
+  }
+}
+
+.contact-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form .form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.contact-form label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.submit-btn {
+  margin-top: 1em;
+  
+  /* Allow the submit button to size to its content so that it can sit
+     alongside other action buttons (WhatsApp and Email) on the same line.
+     This change enables horizontal alignment with the quick contact buttons.
+     On smaller screens the buttons will wrap naturally due to flexbox. */
+  width: 20em;
+  text-align: center;
+  
+}
+
+/* Increase font size of submit button for prominence */
+.submit-btn .btn {
+  font-size: 1.0rem;
+  padding: 0.5rem 1.0rem;
+}
+
+@media (min-width: 768px) {
+  .film-container {
+    gap: 3rem;
+  }
+  .film-wrapper {
+    flex-direction: row;
+    align-items: center;
+  }
+  .film-content {
+    padding-left: 2rem;
+  }
+}
+
+/* Ensure work section displays exactly three cards on desktop */
+@media (min-width: 992px) {
+  .work-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Project details section for work pages */
+.project-details {
+  padding: 2rem 0;
+  background-color: var(--color-white);
+}
+.project-details h3 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: var(--color-black);
+}
+.project-details p {
+  /* Use the same body font as the rest of the site and provide generous
+     spacing between paragraphs on film pages. */
+  font-size: 1rem;
+  font-family: var(--font-body);
+  margin-bottom: 1.25rem;
+  color: #444;
+}
+.project-details p strong {
+  font-weight: 600;
+}
+
+/* Film page title styling */
+.film-page-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: var(--color-black);
+  text-align: center;
+}
+.film-container .section-title {
+  font-family: var(--font-heading);
+  font-size: 3.2rem;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Center the call-to-action button within project details */
+/* Container for film page CTA button */
+.cta-container {
+  text-align: center;
+  margin: 2rem 0 3rem;
+}
+
+.cta-container .btn {
+  font-size: 1.1rem;
+  padding: 0.9rem 2rem;
+}
+
+/* Clients & recognitions list styles */
+.clients-recog {
+  margin-top: 3rem;
+}
+.clients-recog h3 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: var(--color-black);
+}
+.clients-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+.clients-list li {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #444;
+  position: relative;
+  padding-left: 1.2rem;
+}
+.clients-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-blue);
+}

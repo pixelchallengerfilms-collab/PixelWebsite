@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meet Stanzin Jigmet, director of Pixel Challenger Films.">
+  <title>Director – Pixel Challenger Films</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo"><img src="images/pixel-logo-white.png" alt="Pixel Challenger Films logo"></a>
+      <button class="hamburger" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html#work">Work</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="director.html">Director</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <!-- Added Dragon Letter logo linking to the new film page -->
+          <li><a href="dragon-letter.html" aria-label="The Dragon Letter">
+            <img src="images/dragon-letter-logo.png" alt="The Dragon Letter" class="nav-dragon-letter-logo">
+          </a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="director-section" style="padding-top:7rem;padding-bottom:5rem;">
+    <div class="container director-container">
+      <div class="director-image">
+        <img src="images/director.jpg" alt="Director Stanzin Jigmet">
+      </div>
+      <div class="director-bio">
+        <h2 class="section-title">Director – Stanzin Jigmet</h2>
+        <p>Stanzin Jigmet is a film director and writer from Ladakh, India, and the creative force behind our projects. His work combines cinematic artistry with powerful storytelling, blending cultural authenticity with universal themes.</p>
+        <p>Jigmet began his journey as a self‑taught filmmaker, later directing over 30 commercials, documentaries and tourism films for clients such as the Administration of the Union Territory of Ladakh, Royal Enfield, Zomato, UNDP, Harvard, BvH and Ladakh Tourism. His ability to craft emotional, humorous and socially resonant narratives has established him as one of the most promising new voices from the region.</p>
+        <p>Awarded a full scholarship to pursue his Master’s in Film Directing at ESCAC Barcelona, Stanzin developed his graduation short film <em>The Dragon Letter</em> — a Spain–India co‑production produced by ESCAC Films, shot in Ladakh and in Barcelona. The project was the result of winning ESCAC’s Master’s Pitch Award and represents his vision of bringing Ladakhi stories to the international stage.</p>
+        <p>In addition to his commercial and independent work, Jigmet has also contributed to Bollywood, including work on the acclaimed feature <em>12th Fail</em>, and has collaborated on multiple short films in Spain and the Czech Republic.</p>
+        <p>As the founder and director of Pixel Challenger Films, Jigmet leads with a clear vision: to tell stories that cross borders, connect cultures and showcase Ladakh as a powerful voice in world cinema.</p>
+        <div style="margin-top:2rem;">
+          <a href="index.html#contact" class="btn btn-primary">Start a Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-logo"><img src="images/pixel-logo-white.png" alt="Pixel Challenger Films"></div>
+      <p class="footer-text">© 2025 Pixel Challenger Films. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://wa.me/917006188511" aria-label="WhatsApp" class="social-link" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/pixelchallengerfilms?igsh=YnhmM2x0enJiNTZl" aria-label="Instagram" class="social-link" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/17DDppxrLf/?mibextid=wwXIfr" aria-label="Facebook" class="social-link" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://youtube.com/@pixelchallenger?si=KXjoZPsvPZQL1Mag" aria-label="YouTube" class="social-link" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+        <a href="https://vimeo.com/user138449438?fl=pp&fe=sh" aria-label="Vimeo" class="social-link" target="_blank" rel="noopener"><i class="fab fa-vimeo-v"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function () {
+          navLinks.classList.toggle('active');
+          hamburger.classList.toggle('open');
+          const icon = hamburger.querySelector('i');
+          if (icon) {
+            if (hamburger.classList.contains('open')) {
+              icon.classList.remove('fa-bars');
+              icon.classList.add('fa-times');
+            } else {
+              icon.classList.remove('fa-times');
+              icon.classList.add('fa-bars');
+            }
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

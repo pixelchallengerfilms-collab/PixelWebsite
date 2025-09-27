@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover The Dragon Letter, a short film by Pixel Challenger Films.">
+  <title>The Dragon Letter – Pixel Challenger Films</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for social media icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo"><img src="images/pixel-logo-white.png" alt="Pixel Challenger Films logo"></a>
+      <!-- Hamburger toggler for mobile -->
+      <button class="hamburger" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html#work">Work</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="director.html">Director</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <!-- Added Dragon Letter logo linking to this page itself -->
+          <li><a href="dragon-letter.html" aria-label="The Dragon Letter">
+            <img src="images/dragon-letter-logo.png" alt="The Dragon Letter" class="nav-dragon-letter-logo">
+          </a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- The Dragon Letter content -->
+  <section class="film">
+    <div class="container film-container">
+      <div class="film-wrapper">
+        <!-- Embedded Google Drive trailer -->
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;width:100%;">
+          <iframe src="https://drive.google.com/file/d/1pcGLf-GImRC7QO8tqElFAqp-1-8VYC4Q/preview" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Details Section -->
+  <section class="project-details">
+    <div class="container">
+      <h3 class="film-title">The Dragon Letter</h3>
+      <p><strong>Logline:</strong> At a strict boarding school in the Himalayas, a shy ten‑year‑old struggles to write a sponsor letter, but when fear pushes him toward failure, his imagination reveals a truth no perfect copy ever could.</p>
+      <p><strong>Description of Project:</strong> The Dragon Letter is a 15‑minute short film produced as a Spain–India co‑production under ESCAC Films (Barcelona), following my Master’s in Film Directing at ESCAC. The project was developed after winning ESCAC’s Master’s Pitch Award in December 2024.</p>
+      <p>Shot across Ladakh (80%) and Barcelona (20%), the film connects two distinct cultures and landscapes through a single story, positioning Ladakh as both a cinematic setting and a source of powerful human narratives. With the support and production quality of ESCAC, the film blends European cinematic craft with Ladakh’s authenticity and visual depth.</p>
+      <p>Currently in post‑production, <em>The Dragon Letter</em> is being prepared for submission to major international festivals in 2026.</p>
+      <p><strong>Contact:</strong> stanzinjigmet.film@gmail.com | +91 70061 88511</p>
+    </div>
+  </section>
+
+  <!-- Call To Action -->
+  <div class="cta-container">
+    <a href="index.html#contact" class="btn btn-primary">Start Your Project with Us</a>
+  </div>
+
+  <!-- Back button -->
+  <div style="text-align:center;padding:2rem;">
+    <a href="index.html#work" class="btn btn-secondary">Back to Our Work</a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-logo"><img src="images/pixel-logo-white.png" alt="Pixel Challenger Films"></div>
+      <p class="footer-text">© 2025 Pixel Challenger Films. All rights reserved.</p>
+      <!-- Social media links -->
+      <div class="social-links">
+        <a href="https://wa.me/917006188511" aria-label="WhatsApp" class="social-link" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/pixelchallengerfilms?igsh=YnhmM2x0enJiNTZl" aria-label="Instagram" class="social-link" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/17DDppxrLf/?mibextid=wwXIfr" aria-label="Facebook" class="social-link" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://youtube.com/@pixelchallenger?si=KXjoZPsvPZQL1Mag" aria-label="YouTube" class="social-link" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+        <a href="https://vimeo.com/user138449438?fl=pp&fe=sh" aria-label="Vimeo" class="social-link" target="_blank" rel="noopener"><i class="fab fa-vimeo-v"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script for mobile navigation toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function () {
+          navLinks.classList.toggle('active');
+          hamburger.classList.toggle('open');
+          const icon = hamburger.querySelector('i');
+          if (icon) {
+            if (hamburger.classList.contains('open')) {
+              icon.classList.remove('fa-bars');
+              icon.classList.add('fa-times');
+            } else {
+              icon.classList.remove('fa-times');
+              icon.classList.add('fa-bars');
+            }
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
