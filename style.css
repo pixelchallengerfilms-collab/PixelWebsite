@@ -270,10 +270,6 @@ body {
   text-align: left;
 }
 
-/* Custom style for the Dragon Letter logo in the navigation bar */
-.nav-dragon-letter-logo {
-  height: 40px;
-}
 
 /* Film title on detail pages */
 /* Title on individual film pages. Use the same headline font as the rest of
@@ -373,15 +369,7 @@ body {
 }
 
 
-/* Add a subtle hover effect to the Dragon Letter logo in the navigation.
-   Scaling the logo slightly on hover signals interactivity without
-   disrupting the layout. */
-.nav-dragon-letter-logo {
-  transition: transform 0.2s ease;
-}
-.nav-dragon-letter-logo:hover {
-  transform: scale(1.05);
-}
+/* Removed styling for Dragon Letter logo since the element has been removed */
 
 .contact-direct-links .direct-link:hover {
   background-color: var(--color-brown);
@@ -393,12 +381,18 @@ body {
    wrap on smaller screens to maintain readability. */
 .contact-actions {
   display: flex;
+  /* Centre the action buttons horizontally within the container */
   justify-content: center;
   align-items: center;
   /* Increase horizontal spacing between action items for clearer separation */
   gap: 1.5rem;
+  /* Allow buttons to wrap on smaller screens */
   flex-wrap: wrap;
   margin-top: 1rem;
+  /* Shrink the row to its contents and centre it within its parent */
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Separator text between the CTA button and quick contact links */
